@@ -11,6 +11,7 @@ Controls:
 
 Screen: 800 x 600
 """
+
 from __future__ import annotations
 
 import random
@@ -19,7 +20,6 @@ from dataclasses import dataclass
 from typing import Tuple
 
 import pygame
-
 
 # Constants
 WIDTH, HEIGHT = 800, 600
@@ -139,7 +139,9 @@ class Game:
         start_y = HEIGHT // 2 - PADDLE_HEIGHT // 2
         self.player = Paddle(left_x, start_y, speed=520)
         self.ai = Paddle(right_x, start_y, speed=500)  # capped to be beatable
-        self.ball = Ball(WIDTH // 2 - BALL_SIZE // 2, HEIGHT // 2 - BALL_SIZE // 2, speed=420)
+        self.ball = Ball(
+            WIDTH // 2 - BALL_SIZE // 2, HEIGHT // 2 - BALL_SIZE // 2, speed=420
+        )
 
         self.score = Score()
         self.serve_dir = random.choice((-1, 1))
